@@ -3,6 +3,7 @@ import { FeaturedWork } from "@/components/featured-work/featured-work";
 import { WorkGrid } from "@/components/work-grid/work-grid";
 import { About } from "@/components/about/about";
 import { Contact } from "@/components/contact/contact";
+import { Footer } from "@/components/footer/footer";
 import { getAllWork } from "@/lib/work";
 
 export default function Home() {
@@ -20,9 +21,7 @@ export default function Home() {
 
       <Contact />
 
-      <footer className="border-t border-fg-muted/20 py-8 text-center text-fg-muted">
-        © Sheldon Pierce · Seattle
-      </footer>
+      <Footer />
     </main>
   );
 }

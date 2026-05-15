@@ -5,6 +5,7 @@ import { CaseStudyBody } from "@/components/case-study/case-study-body";
 import { CaseStudyGallery } from "@/components/case-study/case-study-gallery";
 import { CaseStudyMeta } from "@/components/case-study/case-study-meta";
 import { CaseStudyNext } from "@/components/case-study/case-study-next";
+import { Footer } from "@/components/footer/footer";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 
 export function generateStaticParams() {
@@ -48,6 +49,7 @@ export default async function CaseStudyPage({
       )}
       <CaseStudyMeta work={work} />
       <CaseStudyNext next={next} />
+      <Footer />
     </main>
   );
 }
