@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { CursorFollower } from "@/components/motion/cursor-follower";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,7 +22,10 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-bg text-fg font-sans antialiased">{children}</body>
+      <body className="bg-bg text-fg font-sans antialiased">
+        <CursorFollower />
+        {children}
+      </body>
     </html>
   );
 }
