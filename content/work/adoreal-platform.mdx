@@ -1,0 +1,24 @@
+---
+slug: adoreal-platform
+title: Adoreal Platform Engineering
+year: 2026
+featured: false
+role: Senior software engineer
+stack: [.NET, C#, Terraform, AWS, Keycloak, RabbitMQ, MassTransit]
+heroImage: /work/adoreal-platform/hero.png
+gallery:
+  - /work/adoreal-platform/architecture.png
+summary: Platform-scale work at a healthcare startup — shared libraries, identity migration, infrastructure.
+---
+
+## Problem
+
+A healthcare platform built across ~28 services accumulates the usual debts: duplicated utility code per service, an identity layer that grew faster than it was designed, infrastructure changes that block on tribal knowledge.
+
+## Approach
+
+Ship breaking changes as coordinated, versioned migrations — not as quiet patches. Move shared functionality into versioned NuGet packages so every service gets the same primitives. Treat identity as a product, not a piece of glue: migrate from a legacy provider to Keycloak with OIDC-native claims, and version the security library as a real semver release (v2.0.0) so consumers can adopt at their own pace.
+
+## Result
+
+Cleaner service boundaries, less per-service ceremony, and a security library that no longer requires reading every consumer's code to make a change. The team gained the ability to evolve identity behavior without spelunking through every microservice.
