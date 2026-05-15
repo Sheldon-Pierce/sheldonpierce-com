@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { CursorFollower } from "@/components/motion/cursor-follower";
 import { GradientOrb } from "@/components/hero/gradient-orb";
+import { Nav } from "@/components/nav/nav";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className="bg-bg text-fg font-sans antialiased">
         <CursorFollower />
         <GradientOrb />
+        <Nav />
         {children}
       </body>
     </html>
