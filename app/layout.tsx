@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import { CursorFollower } from "@/components/motion/cursor-follower";
 import { GradientOrb } from "@/components/hero/gradient-orb";
 import { Nav } from "@/components/nav/nav";
+import { PageTransition } from "@/components/motion/page-transition";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({
         <CursorFollower />
         <GradientOrb />
         <Nav />
+        <PageTransition />
         {children}
       </body>
     </html>
