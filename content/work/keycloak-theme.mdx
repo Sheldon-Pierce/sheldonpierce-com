@@ -2,12 +2,11 @@
 slug: keycloak-theme
 title: Adoreal Keycloak Theme & Consumer Login
 year: 2026
-featured: true
+featured: false
 role: Engineering lead — identity & UX
 stack: [Keycloak, Keycloakify, React, TypeScript, Next.js, Tailwind CSS]
 heroImage: /work/keycloak-theme/hero.png
 gallery:
-  - /work/keycloak-theme/login.png
   - /work/keycloak-theme/totp.png
   - /work/keycloak-theme/email.png
 summary: Re-skinned the identity layer for a healthcare platform — login, TOTP, email — in the company's brand.
@@ -15,12 +14,12 @@ summary: Re-skinned the identity layer for a healthcare platform — login, TOTP
 
 ## Problem
 
-The team migrated authentication to Keycloak from a legacy provider, and inherited Keycloak's stock theme — generic, blue, off-brand. The login screen is the first thing every patient sees. It needed to feel like the rest of the product.
+We migrated identity from a legacy provider to **Keycloak**, and inherited the stock theme — generic, blue, and unmistakably "someone else's product." The login screen is the first thing every patient sees, and it needed to feel like the rest of the platform, not like a third-party landing page bolted on.
 
 ## Approach
 
-Built a Keycloakify-based theme inside a dedicated build pipeline so theme changes ship independently of the Keycloak server. Replaced the stock templates for login, registration, OTP (TOTP and email), forgot-password, and verify-email. Themed the transactional emails to match. Unified the Keycloak server image and theme image into one ECR pipeline so deploys stay simple.
+I built a **Keycloakify**-based theme as its own deployable artifact, so identity UI ships on its own pipeline — independent of the Keycloak server. Replaced every consumer-facing template: login, registration, TOTP and email OTP, forgot-password, verify-email. Themed the transactional emails to match so the brand stays consistent from the marketing site through to the inbox. Unified the Keycloak server image and the theme image into a single ECR pipeline so deploys stay simple.
 
 ## Result
 
-A login experience that feels native to the product instead of bolted on. Consistent typography, color, and tone from the marketing site through to authentication. Faster iteration on identity UI because theme changes deploy on their own pipeline, separate from the Keycloak server.
+A login experience **indistinguishable from the rest of the product** — consistent typography, color, and tone across every touchpoint. Identity UI now iterates in hours, not days, because theme changes don't drag the Keycloak server along with them. And the team can evolve the auth surface without spelunking into the Keycloak codebase every time.
