@@ -1,21 +1,18 @@
 import { Hero } from "@/components/hero/hero";
 import { FeaturedWork } from "@/components/featured-work/featured-work";
+import { WorkGrid } from "@/components/work-grid/work-grid";
 import { getAllWork } from "@/lib/work";
 
 export default function Home() {
   const allWork = getAllWork();
   const featured = allWork.find((w) => w.featured);
+  const rest = allWork.filter((w) => !w.featured);
 
   return (
     <main>
       <Hero />
       {featured && <FeaturedWork work={featured} />}
-
-      <section id="work" className="relative py-section">
-        <h2 className="text-3xl font-semibold px-6 md:px-16 lg:px-24">
-          Selected work (TBD)
-        </h2>
-      </section>
+      <WorkGrid work={rest} />
 
       <section id="about" className="relative py-section">
         <h2 className="text-3xl font-semibold px-6 md:px-16 lg:px-24">
