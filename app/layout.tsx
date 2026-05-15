@@ -8,10 +8,29 @@ import { PageTransition } from "@/components/motion/page-transition";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sheldon Pierce — Software Engineer",
+  title: {
+    default: "Sheldon Pierce — Software Engineer",
+    template: "%s — Sheldon Pierce",
+  },
   description:
-    "Software engineer building identity systems, platforms, and product UI. Seattle, WA.",
+    "Software engineer building identity systems, platforms, and product UI. Available for select freelance work. Seattle, WA.",
   metadataBase: new URL("https://sheldonpierce.com"),
+  openGraph: {
+    title: "Sheldon Pierce — Software Engineer",
+    description:
+      "Software engineer building identity systems, platforms, and product UI.",
+    url: "https://sheldonpierce.com",
+    siteName: "Sheldon Pierce",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sheldon Pierce — Software Engineer",
+    description:
+      "Software engineer building identity systems, platforms, and product UI.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
