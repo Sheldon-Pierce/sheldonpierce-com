@@ -5,6 +5,7 @@ const caseStudies = [
   "handyman-services",
   "adoreal-platform",
   "just-juice",
+  "matchmaking",
 ];
 
 test("landing page renders all sections", async ({ page }) => {
