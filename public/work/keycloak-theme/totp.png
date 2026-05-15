@@ -1,11 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0b"/>
+      <stop offset="100%" stop-color="#11111a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#7c3aed"/>
       <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.2" r="0.7">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cardshadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
   </defs>
-  <rect width="1600" height="900" fill="#0a0a0b"/>
-  <rect width="1600" height="900" fill="url(#g)" opacity="0.18"/>
-  <text x="800" y="450" font-family="monospace" font-size="48" fill="#ededef" text-anchor="middle" dominant-baseline="middle" opacity="0.7">replace with screenshot</text>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <rect width="1600" height="1200" fill="url(#glow)"/>
+
+  <g filter="url(#cardshadow)">
+    <rect x="490" y="280" width="620" height="640" rx="20" fill="#15151a" stroke="#2a2a32" stroke-width="1"/>
+
+    <!-- Lock icon -->
+    <g transform="translate(800 380)">
+      <rect x="-22" y="-8" width="44" height="34" rx="6" fill="none" stroke="url(#accent)" stroke-width="2.5"/>
+      <path d="M -14 -8 v -10 a 14 14 0 0 1 28 0 v 10" fill="none" stroke="url(#accent)" stroke-width="2.5"/>
+      <circle cx="0" cy="10" r="3" fill="url(#accent)"/>
+    </g>
+
+    <text x="800" y="465" font-family="Geist, system-ui, sans-serif" font-size="32" font-weight="600" fill="#ededef" text-anchor="middle">Verify it&apos;s you</text>
+    <text x="800" y="500" font-family="Geist, system-ui, sans-serif" font-size="15" fill="#9ca3af" text-anchor="middle">Enter the 6-digit code from your authenticator app.</text>
+
+    <!-- 6 OTP boxes -->
+    <g>
+      <rect x="540" y="560" width="70" height="84" rx="10" fill="#0a0a0b" stroke="url(#accent)" stroke-width="2"/>
+      <text x="575" y="618" font-family="Geist Mono, monospace" font-size="34" font-weight="600" fill="#ededef" text-anchor="middle">8</text>
+
+      <rect x="624" y="560" width="70" height="84" rx="10" fill="#0a0a0b" stroke="#2a2a32" stroke-width="1"/>
+      <text x="659" y="618" font-family="Geist Mono, monospace" font-size="34" font-weight="600" fill="#ededef" text-anchor="middle">3</text>
+
+      <rect x="708" y="560" width="70" height="84" rx="10" fill="#0a0a0b" stroke="#2a2a32" stroke-width="1"/>
+      <text x="743" y="618" font-family="Geist Mono, monospace" font-size="34" font-weight="600" fill="#ededef" text-anchor="middle">9</text>
+
+      <rect x="808" y="560" width="70" height="84" rx="10" fill="#0a0a0b" stroke="#2a2a32" stroke-width="1"/>
+      <text x="843" y="618" font-family="Geist Mono, monospace" font-size="34" font-weight="600" fill="#ededef" text-anchor="middle">2</text>
+
+      <rect x="892" y="560" width="70" height="84" rx="10" fill="#0a0a0b" stroke="#2a2a32" stroke-width="1"/>
+      <text x="927" y="618" font-family="Geist Mono, monospace" font-size="34" font-weight="600" fill="#ededef" text-anchor="middle">1</text>
+
+      <rect x="976" y="560" width="70" height="84" rx="10" fill="#0a0a0b" stroke="#2a2a32" stroke-width="1"/>
+      <text x="1011" y="618" font-family="Geist Mono, monospace" font-size="34" font-weight="600" fill="#9ca3af" text-anchor="middle">_</text>
+    </g>
+
+    <!-- Resend link -->
+    <text x="800" y="710" font-family="Geist Mono, monospace" font-size="12" fill="#9ca3af" text-anchor="middle" letter-spacing="2">DIDN&apos;T GET A CODE?  RESEND</text>
+
+    <!-- Verify button -->
+    <rect x="540" y="760" width="520" height="56" rx="10" fill="url(#accent)"/>
+    <text x="800" y="795" font-family="Geist, system-ui, sans-serif" font-size="16" font-weight="600" fill="#0a0a0b" text-anchor="middle">Verify and continue</text>
+
+    <!-- Footer link -->
+    <text x="800" y="870" font-family="Geist, system-ui, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">Use a different method</text>
+  </g>
+
+  <text x="80" y="120" font-family="Geist Mono, monospace" font-size="12" fill="#9ca3af" letter-spacing="3">TOTP VERIFICATION · KEYCLOAKIFY</text>
 </svg>

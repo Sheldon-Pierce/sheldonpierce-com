@@ -1,11 +1,96 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0b"/>
+      <stop offset="100%" stop-color="#11111a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#7c3aed"/>
       <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="nodeshadow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#7c3aed" flood-opacity="0.4"/>
+    </filter>
   </defs>
-  <rect width="1600" height="900" fill="#0a0a0b"/>
-  <rect width="1600" height="900" fill="url(#g)" opacity="0.18"/>
-  <text x="800" y="450" font-family="monospace" font-size="48" fill="#ededef" text-anchor="middle" dominant-baseline="middle" opacity="0.7">replace with screenshot</text>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+
+  <g stroke="url(#accent)" stroke-width="1.2" fill="none" opacity="0.5">
+    <line x1="800" y1="450" x2="500" y2="270"/>
+    <line x1="800" y1="450" x2="500" y2="630"/>
+    <line x1="800" y1="450" x2="1100" y2="270"/>
+    <line x1="800" y1="450" x2="1100" y2="630"/>
+    <line x1="800" y1="450" x2="280" y2="450"/>
+    <line x1="800" y1="450" x2="1320" y2="450"/>
+    <line x1="500" y1="270" x2="1100" y2="270" stroke-dasharray="4 6" opacity="0.3"/>
+    <line x1="500" y1="630" x2="1100" y2="630" stroke-dasharray="4 6" opacity="0.3"/>
+    <line x1="280" y1="450" x2="500" y2="270" stroke-dasharray="4 6" opacity="0.3"/>
+    <line x1="280" y1="450" x2="500" y2="630" stroke-dasharray="4 6" opacity="0.3"/>
+    <line x1="1320" y1="450" x2="1100" y2="270" stroke-dasharray="4 6" opacity="0.3"/>
+    <line x1="1320" y1="450" x2="1100" y2="630" stroke-dasharray="4 6" opacity="0.3"/>
+  </g>
+
+  <g filter="url(#nodeshadow)">
+    <rect x="660" y="395" width="280" height="110" rx="14" fill="#15151a" stroke="url(#accent)" stroke-width="2"/>
+    <text x="800" y="430" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" text-anchor="middle" letter-spacing="2">CORE PLATFORM</text>
+    <text x="800" y="465" font-family="Geist, system-ui, sans-serif" font-size="22" font-weight="600" fill="#ededef" text-anchor="middle">core-security</text>
+    <text x="800" y="490" font-family="Geist Mono, monospace" font-size="12" fill="#06b6d4" text-anchor="middle">v2.0.0</text>
+  </g>
+
+  <g filter="url(#nodeshadow)">
+    <rect x="380" y="220" width="240" height="100" rx="12" fill="#15151a" stroke="#2a2a32" stroke-width="1"/>
+    <circle cx="410" cy="270" r="8" fill="#7c3aed"/>
+    <text x="430" y="255" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" letter-spacing="2">IDENTITY</text>
+    <text x="430" y="282" font-family="Geist, system-ui, sans-serif" font-size="17" font-weight="600" fill="#ededef">Keycloak</text>
+    <text x="430" y="304" font-family="Geist Mono, monospace" font-size="11" fill="#9ca3af">OIDC · 28 services</text>
+  </g>
+
+  <g filter="url(#nodeshadow)">
+    <rect x="980" y="220" width="240" height="100" rx="12" fill="#15151a" stroke="#2a2a32" stroke-width="1"/>
+    <circle cx="1010" cy="270" r="8" fill="#06b6d4"/>
+    <text x="1030" y="255" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" letter-spacing="2">MESSAGING</text>
+    <text x="1030" y="282" font-family="Geist, system-ui, sans-serif" font-size="17" font-weight="600" fill="#ededef">MassTransit</text>
+    <text x="1030" y="304" font-family="Geist Mono, monospace" font-size="11" fill="#9ca3af">RabbitMQ</text>
+  </g>
+
+  <g filter="url(#nodeshadow)">
+    <rect x="380" y="580" width="240" height="100" rx="12" fill="#15151a" stroke="#2a2a32" stroke-width="1"/>
+    <circle cx="410" cy="630" r="8" fill="#7c3aed"/>
+    <text x="430" y="615" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" letter-spacing="2">INFRASTRUCTURE</text>
+    <text x="430" y="642" font-family="Geist, system-ui, sans-serif" font-size="17" font-weight="600" fill="#ededef">Terraform · AWS</text>
+    <text x="430" y="664" font-family="Geist Mono, monospace" font-size="11" fill="#9ca3af">EKS · ECR · RDS</text>
+  </g>
+
+  <g filter="url(#nodeshadow)">
+    <rect x="980" y="580" width="240" height="100" rx="12" fill="#15151a" stroke="#2a2a32" stroke-width="1"/>
+    <circle cx="1010" cy="630" r="8" fill="#06b6d4"/>
+    <text x="1030" y="615" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" letter-spacing="2">SHARED LIBS</text>
+    <text x="1030" y="642" font-family="Geist, system-ui, sans-serif" font-size="17" font-weight="600" fill="#ededef">NuGet packages</text>
+    <text x="1030" y="664" font-family="Geist Mono, monospace" font-size="11" fill="#9ca3af">api-core · service-core</text>
+  </g>
+
+  <g filter="url(#nodeshadow)">
+    <rect x="120" y="400" width="160" height="100" rx="12" fill="#15151a" stroke="#2a2a32" stroke-width="1"/>
+    <circle cx="150" cy="445" r="6" fill="#9ca3af"/>
+    <text x="200" y="430" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" text-anchor="middle" letter-spacing="2">EMR</text>
+    <text x="200" y="465" font-family="Geist, system-ui, sans-serif" font-size="15" font-weight="600" fill="#ededef" text-anchor="middle">Patient</text>
+    <text x="200" y="485" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" text-anchor="middle">.NET 9</text>
+  </g>
+
+  <g filter="url(#nodeshadow)">
+    <rect x="1320" y="400" width="160" height="100" rx="12" fill="#15151a" stroke="#2a2a32" stroke-width="1"/>
+    <circle cx="1350" cy="445" r="6" fill="#9ca3af"/>
+    <text x="1400" y="430" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" text-anchor="middle" letter-spacing="2">FRONTEND</text>
+    <text x="1400" y="465" font-family="Geist, system-ui, sans-serif" font-size="15" font-weight="600" fill="#ededef" text-anchor="middle">Angular</text>
+    <text x="1400" y="485" font-family="Geist Mono, monospace" font-size="10" fill="#9ca3af" text-anchor="middle">+ keycloak-js</text>
+  </g>
+
+  <text x="80" y="100" font-family="Geist Mono, monospace" font-size="11" fill="#9ca3af" letter-spacing="3">.NET · TERRAFORM · KEYCLOAK · RABBITMQ</text>
+  <text x="1520" y="100" font-family="Geist Mono, monospace" font-size="11" fill="#9ca3af" letter-spacing="3" text-anchor="end">2026</text>
+  <text x="80" y="830" font-family="Geist, system-ui, sans-serif" font-size="13" fill="#9ca3af">Healthcare platform — 28 microservices, coordinated identity migration, versioned shared libraries.</text>
 </svg>
