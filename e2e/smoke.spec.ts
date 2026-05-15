@@ -3,10 +3,9 @@ import { test, expect } from "@playwright/test";
 const caseStudies = [
   "keycloak-theme",
   "handyman-services",
-  "west-seattle-blog",
   "adoreal-platform",
   "capital-finder",
-  "urban-trail",
+  "just-juice",
 ];
 
 test("landing page renders all sections", async ({ page }) => {
