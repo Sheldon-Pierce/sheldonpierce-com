@@ -45,6 +45,58 @@ export function CaseStudyHero({ work }: CaseStudyHeroProps) {
         >
           {work.summary}
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-8 flex flex-wrap gap-2"
+        >
+          {work.stack.slice(0, 6).map((s) => (
+            <span
+              key={s}
+              className="rounded-full border border-fg-muted/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-fg-muted"
+            >
+              {s}
+            </span>
+          ))}
+        </motion.div>
+
+        {(work.liveUrl || work.repoUrl) && (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
+            {work.liveUrl && (
+              <a
+                href={work.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="hover"
+                className="group inline-flex items-center gap-3 rounded-full px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg gradient-accent transition-transform hover:-translate-y-0.5"
+              >
+                Visit live site
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                  ↗
+                </span>
+              </a>
+            )}
+            {work.repoUrl && (
+              <a
+                href={work.repoUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="hover"
+                className="inline-flex items-center gap-3 rounded-full border border-fg-muted/30 px-6 py-3 font-mono text-xs uppercase tracking-widest text-fg-muted transition-colors hover:border-fg hover:text-fg"
+              >
+                View source
+                <span aria-hidden>↗</span>
+              </a>
+            )}
+          </motion.div>
+        )}
       </div>
 
       <div className="mt-16 px-6 md:px-16 lg:px-24">
