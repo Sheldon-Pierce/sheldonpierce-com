@@ -1,12 +1,9 @@
+import { Hero } from "@/components/hero/hero";
+
 export default function Home() {
   return (
     <main>
-      <section
-        id="hero"
-        className="relative flex min-h-screen items-center justify-center"
-      >
-        <h1 className="text-5xl font-bold">Hero (TBD)</h1>
-      </section>
+      <Hero />
 
       <section id="featured" className="relative py-section">
         <h2 className="text-3xl font-semibold">Featured (TBD)</h2>
