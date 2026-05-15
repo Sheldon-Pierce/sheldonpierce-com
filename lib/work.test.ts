@@ -4,7 +4,7 @@ import { getAllWork, getWorkBySlug } from "./work";
 describe("work loader", () => {
   it("loads all work entries sorted with featured first then by year desc", () => {
     const all = getAllWork();
-    expect(all.length).toBe(5);
+    expect(all.length).toBe(4);
     expect(all[0].featured).toBe(true);
     expect(all[0].slug).toBe("just-juice");
   });

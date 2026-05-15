@@ -4,7 +4,6 @@ const caseStudies = [
   "keycloak-theme",
   "handyman-services",
   "adoreal-platform",
-  "capital-finder",
   "just-juice",
 ];
 
