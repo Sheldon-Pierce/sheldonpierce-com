@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-bg: #0a0a0b;
+  --color-bg-muted: #1a1a1d;
+  --color-fg: #ededef;
+  --color-fg-muted: #9ca3af;
+  --color-accent-violet: #7c3aed;
+  --color-accent-cyan: #06b6d4;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --spacing-section: 6rem;
+  --spacing-section-mobile: 4rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-accent-violet);
+    color: var(--color-fg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.gradient-accent {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-accent-violet),
+    var(--color-accent-cyan)
+  );
+}
+
+.text-gradient-accent {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-accent-violet),
+    var(--color-accent-cyan)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
