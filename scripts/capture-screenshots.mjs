@@ -20,10 +20,10 @@ const MOBILE = { width: 390, height: 844 }; // iPhone 14 Pro-ish
 
 const targets = {
   "just-juice": {
-    base: "https://just-juice.onrender.com",
-    warmup: true,
+    base: "https://just-juice-react.vercel.app",
+    warmup: false,
     readySelectors: ["h2.chakra-heading, .chakra-text"],
-    settleMs: 4000,
+    settleMs: 3000,
     shots: [
       { name: "hero", path: "/" },
       { name: "products", path: "/products" },
@@ -50,7 +50,7 @@ const targets = {
             }
           }
           // Navigate to the cart page
-          await page.goto("https://just-juice.onrender.com/cart", { waitUntil: "networkidle" });
+          await page.goto("https://just-juice-react.vercel.app/cart", { waitUntil: "networkidle" });
           await page.waitForTimeout(2000);
         },
       },
