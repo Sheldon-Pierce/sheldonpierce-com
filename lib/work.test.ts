@@ -6,7 +6,7 @@ describe("work loader", () => {
     const all = getAllWork();
     expect(all.length).toBe(5);
     expect(all[0].featured).toBe(true);
-    expect(all[0].slug).toBe("just-juice");
+    expect(all[0].slug).toBe("matchmaking");
   });
 
   it("returns a single work entry by slug", () => {
