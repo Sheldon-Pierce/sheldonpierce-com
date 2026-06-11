@@ -1,72 +1,103 @@
 import { FadeUpOnScroll } from "@/components/motion/fade-up-on-scroll";
 
-const skills = [
-  "TypeScript",
-  "React / Next.js",
-  ".NET / C#",
-  "Node.js",
-  "Tailwind CSS",
-  "Framer Motion",
-  "Terraform",
-  "AWS",
-  "Keycloak",
-  "RabbitMQ",
-  "Postgres",
+const fieldNotes = [
+  "Ex-geologist, current engineer",
+  "Event-driven systems w/ RabbitMQ",
+  "Coaching devs @ UPLIFT Foundation",
+  "Bikes around West Seattle",
+  "Flies drones — fun & science",
+  "Reads more than he writes",
+];
+
+const stack: { k: string; v: string[] }[] = [
+  { k: "Languages", v: ["TypeScript", "C#", "Python", "SQL"] },
+  {
+    k: "Frameworks",
+    v: ["React / Next.js", ".NET", "Node.js", "Tailwind CSS", "Framer Motion"],
+  },
+  {
+    k: "Infrastructure",
+    v: ["AWS", "Terraform", "Keycloak", "RabbitMQ", "Postgres"],
+  },
 ];
 
 export function About() {
   return (
-    <section id="about" className="relative px-6 py-section md:px-16 lg:px-24">
-      <FadeUpOnScroll>
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-fg-muted">
-          About
-        </p>
-      </FadeUpOnScroll>
+    <section className="about" id="about">
+      <div className="wrap">
+        <FadeUpOnScroll>
+          <div className="stratum-label">
+            <span className="depth">— 110 m</span> About
+          </div>
+        </FadeUpOnScroll>
 
-      <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
-        <FadeUpOnScroll delay={0.05}>
+        <div className="about-grid">
           <div>
-            <h2 className="text-3xl font-semibold leading-tight md:text-5xl">
-              I build the unglamorous middle layer — and the polished surface on top of it.
-            </h2>
-            <div className="mt-8 space-y-6 text-lg text-fg-muted">
+            <FadeUpOnScroll>
+              <h2>
+                I build the unglamorous middle layer —{" "}
+                <em>and the polished surface on top of it.</em>
+              </h2>
+            </FadeUpOnScroll>
+            <FadeUpOnScroll>
               <p>
-                I&apos;m a software engineer based in Seattle. Day-to-day I work on
-                identity systems, platform infrastructure, and product UI for a
-                healthcare startup — the kind of work that&apos;s invisible when it&apos;s
-                done right.
+                I&apos;m a software engineer based in Seattle. Day-to-day I work
+                on <strong>identity systems, platform infrastructure, and
+                product UI</strong> for a healthcare startup — the kind of work
+                that&apos;s invisible when it&apos;s done right.
               </p>
+            </FadeUpOnScroll>
+            <FadeUpOnScroll>
               <p>
-                I care most about software that gets out of the way: fast,
-                quiet, and honest about what it does. I&apos;ve shipped things from
-                marketing sites to multi-service migrations, and I take both
-                kinds of work seriously.
+                I started my career studying rocks and groundwater. Somewhere
+                between seismic surveys and sensor datasets, I found myself
+                writing scripts to make the work easier — and never stopped. The
+                instinct is the same: understand what&apos;s under the surface,
+                then build something reliable on top of it.
               </p>
+            </FadeUpOnScroll>
+            <FadeUpOnScroll>
               <p>
-                Outside of work, I build small projects, ride bikes around West
-                Seattle, and read more than I write.
+                I care most about software that gets out of the way:{" "}
+                <strong>fast, quiet, and honest about what it does.</strong>{" "}
+                I&apos;ve shipped everything from marketing sites to
+                multi-service migrations, and I take both kinds of work
+                seriously.
               </p>
-            </div>
+            </FadeUpOnScroll>
           </div>
-        </FadeUpOnScroll>
 
-        <FadeUpOnScroll delay={0.15}>
-          <div className="md:pt-2">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-fg-muted">
-              Stack
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {skills.map((s) => (
-                <span
-                  key={s}
-                  className="rounded-full border border-fg-muted/20 px-3 py-1 font-mono text-xs text-fg-muted"
-                >
-                  {s}
-                </span>
-              ))}
+          <FadeUpOnScroll className="field-notes">
+            <span className="fn-title">{"// Field notes"}</span>
+            {fieldNotes.map((note) => (
+              <div className="fn-item" key={note}>
+                {note}
+              </div>
+            ))}
+          </FadeUpOnScroll>
+        </div>
+
+        <div className="stack">
+          <FadeUpOnScroll>
+            <div className="stratum-label">
+              <span className="depth">— 150 m</span> Stack
             </div>
-          </div>
-        </FadeUpOnScroll>
+          </FadeUpOnScroll>
+          <FadeUpOnScroll className="stack-rows">
+            {stack.map((row) => (
+              <div className="stack-row" key={row.k}>
+                <span className="k">{row.k}</span>
+                <span className="v">
+                  {row.v.map((tag) => (
+                    <span className="tag" key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </span>
+              </div>
+            ))}
+          </FadeUpOnScroll>
+        </div>
       </div>
     </section>
   );
