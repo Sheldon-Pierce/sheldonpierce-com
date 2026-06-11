@@ -1,10 +1,31 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Bricolage_Grotesque, Archivo, IBM_Plex_Mono } from "next/font/google";
 import { ClientOverlays } from "@/components/motion/client-overlays";
 import { GradientOrb } from "@/components/hero/gradient-orb";
+import { DepthRail } from "@/components/depth-rail/depth-rail";
 import { Nav } from "@/components/nav/nav";
 import "./globals.css";
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -40,12 +61,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${bricolage.variable} ${archivo.variable} ${plexMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-bg text-fg font-sans antialiased">
+      <body className="antialiased">
         <ClientOverlays />
         <GradientOrb />
+        <DepthRail />
         <Nav />
         {children}
       </body>

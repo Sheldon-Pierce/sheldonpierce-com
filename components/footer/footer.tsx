@@ -1,15 +1,18 @@
-export function Footer() {
+export function FooterContent() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-fg-muted/10 px-6 py-12 md:px-16 lg:px-24">
-      <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-fg-muted">
-          © {year} Sheldon Pierce
-        </p>
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-fg-muted">
-          Seattle, WA
-        </p>
-      </div>
+    <footer className="site-footer">
+      <span>© {year} Sheldon Pierce</span>
+      <span className="coords">SEATTLE, WA · CORE SAMPLE №01 · LOGGED 2026</span>
     </footer>
+  );
+}
+
+/** Standalone footer for side pages (case studies, 404), centered in a wrap. */
+export function Footer() {
+  return (
+    <div className="wrap">
+      <FooterContent />
+    </div>
   );
 }

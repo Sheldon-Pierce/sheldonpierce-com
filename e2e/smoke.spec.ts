@@ -19,7 +19,11 @@ test("landing page renders all sections", async ({ page }) => {
 
 test("contact email link is correct", async ({ page }) => {
   await page.goto("/");
-  const email = page.getByRole("link", { name: /pierce55@icloud.com/i });
+  // The email appears in both the hero CTA and the contact section; assert the
+  // canonical contact-section link.
+  const email = page
+    .locator("#contact")
+    .getByRole("link", { name: /pierce55@icloud.com/i });
   await expect(email).toHaveAttribute("href", "mailto:pierce55@icloud.com");
 });
 

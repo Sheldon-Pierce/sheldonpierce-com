@@ -11,8 +11,8 @@ export default function Icon() {
         style={{
           width: "100%",
           height: "100%",
-          background: "linear-gradient(135deg, #7c3aed, #06b6d4)",
-          color: "#0a0a0b",
+          background: "#07090c",
+          color: "#c9824b",
           fontSize: 18,
           fontWeight: 800,
           display: "flex",

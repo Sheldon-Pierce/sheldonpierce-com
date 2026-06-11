@@ -1,31 +1,92 @@
-import { AnimatedName } from "./animated-name";
+"use client";
+import { motion, useReducedMotion } from "motion/react";
+import { Terrain } from "./terrain";
 import { TypedSubtitle } from "./typed-subtitle";
 
+const FIRST = "Sheldon";
+const LAST = "Pierce";
+
 export function Hero() {
+  const reduced = useReducedMotion();
+
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-screen flex-col items-start justify-center px-6 md:px-16 lg:px-24"
-    >
-      <p className="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-fg-muted">
-        Software engineer · Seattle
-      </p>
-      <AnimatedName
-        text="Sheldon Pierce"
-        className="text-6xl font-bold leading-[1.05] tracking-tight md:text-8xl lg:text-9xl"
-      />
-      <TypedSubtitle
-        text="Building identity systems, platforms, and product UI that get out of the way."
-        startDelay={1.0}
-        className="mt-8 max-w-2xl text-lg text-fg-muted md:text-xl"
-      />
-      <a
-        href="#featured"
-        className="mt-16 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-fg-muted transition-colors hover:text-fg"
-      >
-        <span className="h-px w-8 bg-current" />
-        Scroll
-      </a>
+    <section className="hero" aria-label="Intro">
+      <Terrain />
+      <div className="hero-fade" />
+      <div className="wrap">
+        <motion.div
+          className="hero-eyebrow"
+          initial={reduced ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="dot" /> SOFTWARE ENGINEER — SEATTLE, WA · 47.60°N
+          122.33°W
+        </motion.div>
+
+        <h1 aria-label="Sheldon Pierce">
+          <AnimatedLine text={FIRST} reduced={reduced} offset={0} />
+          <br />
+          <AnimatedLine text={LAST} reduced={reduced} offset={FIRST.length} />
+          <span className="thin" aria-hidden>
+            .
+          </span>
+        </h1>
+
+        <TypedSubtitle
+          className="hero-sub"
+          startDelay={0.9}
+          text="I build identity systems, platform infrastructure, and product UI — the unglamorous middle layer, and the polished surface on top of it."
+        />
+
+        <motion.div
+          className="hero-cta"
+          initial={reduced ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <a className="btn primary" href="#work">
+            See the work ↓
+          </a>
+          <a className="btn ghost" href="mailto:pierce55@icloud.com">
+            pierce55@icloud.com
+          </a>
+        </motion.div>
+      </div>
+      <div className="scroll-hint">SCROLL TO DESCEND</div>
     </section>
+  );
+}
+
+/** Letter-by-letter reveal for one line of the hero name (the kept flourish). */
+function AnimatedLine({
+  text,
+  reduced,
+  offset,
+}: {
+  text: string;
+  reduced: boolean | null;
+  offset: number;
+}) {
+  if (reduced) return <>{text}</>;
+  return (
+    <>
+      {text.split("").map((char, i) => (
+        <motion.span
+          key={i}
+          aria-hidden
+          className="inline-block"
+          initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{
+            duration: 0.7,
+            delay: (offset + i) * 0.05,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </>
   );
 }
