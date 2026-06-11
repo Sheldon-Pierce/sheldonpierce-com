@@ -9,19 +9,6 @@ const CursorFollower = dynamic(
   { ssr: false },
 );
 
-const PageTransition = dynamic(
-  () =>
-    import("@/components/motion/page-transition").then((m) => ({
-      default: m.PageTransition,
-    })),
-  { ssr: false },
-);
-
 export function ClientOverlays() {
-  return (
-    <>
-      <CursorFollower />
-      <PageTransition />
-    </>
-  );
+  return <CursorFollower />;
 }
